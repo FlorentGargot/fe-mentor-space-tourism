@@ -1,0 +1,25 @@
+header{
+    height: 88px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+}
+
+header div{
+    height: 40px;
+    width: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#logo {
+    background-image: url('/assets/shared/logo.svg');
+    background-size: cover;
+}
+
+#burger-menu {
+    background-image: url('/assets/shared/icon-hamburger.svg');
+    background-size: auto;
+
+}
