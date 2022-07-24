@@ -12,7 +12,7 @@
 }
 
 app-header{
-    grid-column: 1 / 4;
+    grid-column: 1 / 5;
     grid-row: 1 / 2;
     place-self: stretch;
 }
@@ -20,14 +20,14 @@ app-header{
 
 .grid-container{
     display: grid;
-    grid-template-columns: 1fr 13fr 1fr;
+    grid-template-columns: 2fr 13fr 13fr 2fr;
     grid-template-rows: 88px 5fr 4fr;
     align-items: center;
 
 }
 
 .home-content-container{
-    grid-column: 2;
+    grid-column: 2 / 4;
     grid-row: 2;
     text-align: center;
 }
@@ -35,7 +35,7 @@ app-header{
 
 
 .home-button-container{
-    grid-column: 2;
+    grid-column: 2 / 4;
     grid-row: 3;
     
    
@@ -80,7 +80,8 @@ app-header{
     }
     .grid-container{
         
-        grid-template-columns: 1fr 450px 1fr;
+        grid-template-columns: 1fr 225px 225px 1fr;
+        grid-template-rows: 96px 5fr 4fr;
 
         
         button{ 
@@ -95,5 +96,37 @@ app-header{
     .component{
     background-image: url('/assets/home/background-home-desktop.jpg');
     }
+
+    .grid-container{
+        
+        grid-template-columns: 11fr 37fr 37fr 11fr;
+        grid-template-rows: 96px 5fr 1fr;
+        align-items: end;
+    }
+
+    .home-content-container{
+        grid-column: 2 / 3;
+        grid-row: 2;
+    }
+    
+    
+    
+    .home-button-container{
+        grid-column: 3 / 4;
+        grid-row: 2;
+        margin: 0;
+        justify-self: end;
+
+        button{
+            transition: all .2s ease-in-out;
+            &:hover{
+                box-shadow: 0 0 0 88px rgba(255, 255, 255, .1);
+            }
+
+        }
+
+    }
+
+
     
 }
