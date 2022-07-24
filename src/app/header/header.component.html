@@ -1,4 +1,13 @@
 <header>
     <div id="logo"></div>
-    <div id="burger-menu"></div>
+    <div id="burger-menu" *ngIf="isMobileLayout"></div>
+    <div id="menu" class="flex-container">
+        
+            <div id="burger-menu-close" *ngIf="isMobileLayout" class="flex-item"></div>
+            <div class="flex-item"><span class="menu-number" *ngIf="isMobileLayout">00</span><a routerLink="">Home</a></div>
+            <div class="flex-item"><span class="menu-number" *ngIf="isMobileLayout">01</span><a routerLink="destination">Destination</a></div>
+            <div class="flex-item"><span class="menu-number" *ngIf="isMobileLayout">02</span><a routerLink="crew">Crew</a></div>
+            <div class="flex-item"><span class="menu-number" *ngIf="isMobileLayout">03</span><a routerLink="technology">Technology</a></div>
+        
+    </div>
 </header>

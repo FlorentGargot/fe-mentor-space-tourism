@@ -1,25 +1,101 @@
 header{
-    height: 88px;
+    min-height: 88px;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 24px;
-}
-
-header div{
-    height: 40px;
-    width: 40px;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 #logo {
     background-image: url('/assets/shared/logo.svg');
     background-size: cover;
+    height: 40px;
+    width: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 24px;
 }
 
 #burger-menu {
     background-image: url('/assets/shared/icon-hamburger.svg');
     background-size: auto;
+    height: 40px;
+    width: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 24px;
+
+}
+
+#menu{
+    position: fixed;
+    top: 0;
+    left: 100vw;
+    height: 100vh;
+    width: 68vw;
+    font-size: 16px;
+}
+
+.menu-number{
+    padding: 0 11px;
+    font-family: 'Barlow';
+    font-stretch: condensed;
+    color: #fff;
+    letter-spacing: 2.7px;
+    font-weight: 700;
+    margin-left: 32px;
+}
+
+
+#burger-menu-close{
+    align-self: flex-end;
+    background-image: url('/assets/shared/icon-close.svg');
+    width: 20px;
+    height: 21px;
+    margin: 32px 32px 0 0;
+}
+
+.flex-container{
+    display: flex;
+    gap: 32px;
+    text-transform: uppercase;
+    align-items: center;
+    background-color: rgba(255, 255, 255, .04);
+    flex-direction: column;
+    align-items: flex-start;
+    //align-self: stretch;
+}
+
+.flex-item{
+    color: #fff;
+    font-family: 'Barlow';
+    font-stretch: condensed;
+    font-weight: 100;
+    line-height: 17px;
+
+}
+
+@media screen and (min-width: 768px){
+    #logo{
+        margin-left: 39px;
+        margin-top: -4px;
+    }
+
+    #menu{
+        position: initial;
+        right: auto;
+        width: auto;
+        font-size: 14px;
+        height: 100%;
+        flex-direction: row;
+        align-items: center;
+
+    }
+
+    .flex-container{
+        column-gap: 37px;
+        padding: 0 48px;
+    }
+
 
 }
