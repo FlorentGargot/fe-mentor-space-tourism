@@ -28,7 +28,7 @@ header{
 }
 
 #menu{
-    gap: 32px;
+    gap: 19px;
     text-transform: uppercase;
     align-items: center;
     background-color: rgba(255, 255, 255, .04);
@@ -41,6 +41,17 @@ header{
     height: 100vh;
     width: 68vw;
     font-size: 16px;
+    backdrop-filter: blur(81.5485px);
+}
+
+    
+.menu-item{
+    width: 100%;
+    letter-spacing: 2.7px;
+    padding: 3px 0;
+    &.active{
+        border-right: solid 4px #fff;
+    }
 }
 
 .menu-number{
@@ -48,18 +59,10 @@ header{
     font-family: 'Barlow';
     font-stretch: condensed;
     color: #fff;
-    letter-spacing: 2.7px;
     font-weight: 700;
     margin-left: 32px;
 }
 
-.menu-item{
-    height: 100%;
-    align-items: center;
-    &.active{
-        border-bottom: solid 1px #fff;
-    }
-}
 
 
 #burger-menu-close{
@@ -67,7 +70,7 @@ header{
     background-image: url('/assets/shared/icon-close.svg');
     width: 20px;
     height: 21px;
-    margin: 32px 32px 0 0;
+    margin: 32px 32px 40px 0;
 }
 
 .flex-container{
@@ -101,6 +104,16 @@ header{
         column-gap: 37px;
         padding: 0 48px;
 
+    }
+
+    
+    .menu-item{
+        height: 100%;
+        align-items: center;
+        &.active{
+            border-bottom: solid 3px #fff;
+            border-right: none;
+        }
     }
 
 
