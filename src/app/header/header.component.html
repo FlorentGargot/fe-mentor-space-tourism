@@ -1,13 +1,13 @@
 <header>
     <div id="logo"></div>
-    <div id="burger-menu" *ngIf="isMobileLayout"></div>
+    <div id="burger-menu" *ngIf="isMobileLayout" (click)="onOpenMenuClick()"></div>
     <div id="menu" class="flex-container">
         
-            <div id="burger-menu-close" *ngIf="isMobileLayout" class="flex-item"></div>
-            <div class="flex-item menu-item flex-container" routerLink="" routerLinkActive="active"><span class="menu-number" *ngIf="isMobileLayout">00</span><p>Home</p></div>
-            <div class="flex-item menu-item flex-container" routerLink="destination" routerLinkActive="active"><span class="menu-number" *ngIf="isMobileLayout">01</span><p>Destination</p></div>
-            <div class="flex-item menu-item flex-container" routerLink="crew" routerLinkActive="active"><span class="menu-number" *ngIf="isMobileLayout">02</span><p>Crew</p></div>
-            <div class="flex-item menu-item flex-container" routerLink="technology" routerLinkActive="active"><span class="menu-number" *ngIf="isMobileLayout">03</span><p>Technology</p></div>
+            <div id="burger-menu-close" *ngIf="isMobileLayout" class="flex-item" (click)="onCloseMenuClick()"></div>
+            <div class="flex-item menu-item flex-container" routerLink="" routerLinkActive="active"><span class="menu-number" *ngIf="isMobileLayout||isDesktopLayout">00</span><p>Home</p></div>
+            <div class="flex-item menu-item flex-container" routerLink="destination" routerLinkActive="active"><span class="menu-number" *ngIf="isMobileLayout||isDesktopLayout">01</span><p>Destination</p></div>
+            <div class="flex-item menu-item flex-container" routerLink="crew" routerLinkActive="active"><span class="menu-number" *ngIf="isMobileLayout||isDesktopLayout">02</span><p>Crew</p></div>
+            <div class="flex-item menu-item flex-container" routerLink="technology" routerLinkActive="active"><span class="menu-number" *ngIf="isMobileLayout||isDesktopLayout">03</span><p>Technology</p></div>
         
     </div>
 </header>
