@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-header',
@@ -6,20 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  
 
-  isMobileLayout = false;
-  isDesktopLayout = false;
-
-  constructor() { }
+  constructor(protected appComponent: AppComponent) { }
 
   ngOnInit(): void {
     window.onload = () => {
-      this.isMobileLayout = window.innerWidth < 768;
-      this.isDesktopLayout = window.innerWidth >= 1024
+      this.appComponent.isMobileLayout = window.innerWidth < 768;
+      this.appComponent.isDesktopLayout = window.innerWidth >= 1024
     };
     window.onresize = () => {
-      this.isMobileLayout = window.innerWidth < 768;
-      this.isDesktopLayout = window.innerWidth >= 1024
+      this.appComponent.isMobileLayout = window.innerWidth < 768;
+      this.appComponent.isDesktopLayout = window.innerWidth >= 1024
     };
     
   }

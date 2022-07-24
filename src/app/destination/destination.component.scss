@@ -1,0 +1,36 @@
+.component{
+    height: 100vh;
+    //overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/assets/destination/background-destination-mobile.jpg');
+}
+
+app-header{
+    grid-column: 1 / 5;
+    grid-row: 1 / 2;
+    place-self: stretch;
+}
+
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 2fr 13fr 13fr 2fr;
+    grid-template-rows: 88px 5fr 4fr;
+    align-items: center;
+
+}
+
+
+@media screen and (min-width: 768px) {
+    .component{
+        background-image: url('/assets/destination/background-destination-tablet.jpg');
+    }
+    
+}
+
+@media screen and (min-width: 1024px) {
+    .component{
+        background-image: url('/assets/destination/background-destination-desktop.jpg');
+    }
+}

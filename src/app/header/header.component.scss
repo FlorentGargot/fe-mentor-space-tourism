@@ -4,6 +4,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: rgba(255, 255, 255, 0);
 }
 
 #logo {
@@ -104,6 +105,7 @@ header{
     #logo{
         margin-left: 39px;
         margin-top: -4px;
+        flex-shrink: 0;
     }
 
     #menu{
@@ -169,6 +171,22 @@ header{
     }
     .menu-number{
         margin-left: 0;
+    }
+
+    #menu{
+        padding: 0 100px;
+    }
+
+    #menuline{
+        height: 1px;
+        background-color: #fff;
+        opacity: .25;
+        width: 100%;
+        position: relative;
+        left: 30px;
+        margin-left: 34px;
+        z-index: 1;
+        flex-grow: 1;
     }
     
 }
