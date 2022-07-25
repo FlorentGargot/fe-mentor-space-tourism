@@ -12,7 +12,7 @@
 }
 
 app-header{
-    grid-column: 1 / 5;
+    grid-column: 1 / -1;
     grid-row: 1 / 2;
     place-self: stretch;
 }
@@ -81,7 +81,7 @@ app-header{
     .grid-container{
         
         grid-template-columns: 1fr 225px 225px 1fr;
-        grid-template-rows: 96px 5fr 4fr;
+        grid-template-rows: 6px 5fr 4fr;
 
         
         button{ 
@@ -92,7 +92,7 @@ app-header{
 
 }
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1280px) and (min-height: 720px) {
     .component{
     background-image: url('/assets/home/background-home-desktop.jpg');
     }

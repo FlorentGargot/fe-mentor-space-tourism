@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Destination } from '../models/destination.model';
+import { DestinationService } from '../services/destination.service';
 
 @Component({
   selector: 'app-destination',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DestinationComponent implements OnInit {
 
-  constructor() { }
+  destinations: Destination[] = [];
+
+  constructor(private destinationService: DestinationService) { }
 
   ngOnInit(): void {
+    this.destinationService.getAllDestinations().subscribe(dest => this.destinations = dest);
   }
 
 }

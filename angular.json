@@ -72,8 +72,9 @@
               "browserTarget": "space-tourism:build:production"
             },
             "development": {
-              "browserTarget": "space-tourism:build:development"
-            }
+              "browserTarget": "space-tourism:build:development",
+              "proxyConfig": "proxy.conf.json"
+          }
           },
           "defaultConfiguration": "development"
         },
