@@ -167,6 +167,9 @@ app-header{
     cursor: pointer;
     padding-bottom: 8px;
     &.active::before{
+        content: "";
+        position: absolute;
+        bottom: 0;
         border-bottom: solid 3px #fff;
         width: 100%;
         left: 0;

@@ -19,14 +19,6 @@ export class DestinationComponent implements OnInit {
 
   ngOnInit(): void {
     this.destinationService.getAllDestinations().subscribe(dest => this.destinations = dest);
-    document.addEventListener('DOMContentLoaded', (event) => this.onLoad());
-  }
-
-  onLoad(){
-    document.querySelector('#destination-image-'+this.activeDestination)?.classList.add('active-destination');
-    document.querySelector('#destination-item-'+this.activeDestination)?.classList.add('active-destination');
-    document.querySelector('#destination-stats-'+this.activeDestination)?.classList.add('active-destination');
-    document.querySelector('#destination-button-'+this.activeDestination)?.classList.add('active');
   }
 
 
