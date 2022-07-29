@@ -11,11 +11,44 @@ import { DestinationService } from '../services/destination.service';
 export class DestinationComponent implements OnInit {
 
   destinations: Destination[] = [];
+  activeDestination: number;
 
-  constructor(private destinationService: DestinationService) { }
+  constructor(private destinationService: DestinationService) {     
+    this.activeDestination = 0;
+  }
 
   ngOnInit(): void {
     this.destinationService.getAllDestinations().subscribe(dest => this.destinations = dest);
+    document.addEventListener('DOMContentLoaded', (event) => this.onLoad());
+  }
+
+  onLoad(){
+    document.querySelector('#destination-image-'+this.activeDestination)?.classList.add('active-destination');
+    document.querySelector('#destination-item-'+this.activeDestination)?.classList.add('active-destination');
+    document.querySelector('#destination-stats-'+this.activeDestination)?.classList.add('active-destination');
+    document.querySelector('#destination-button-'+this.activeDestination)?.classList.add('active');
+  }
+
+
+  onDestinationClick(destinationId: number){
+
+    // do nothing if clicked destination is already active
+    if(destinationId == this.activeDestination) return;
+
+    // error handling
+    if(destinationId < 0) {console.error('onDestinationClick handler: destination ID is negative'); return};
+    if(destinationId >= this.destinations.length) { console.error('onDestinationClick handler: destination ID is not in the destination list') ;return};
+
+    document.querySelectorAll('.active-destination').forEach(element => element.classList.remove("active-destination"));
+    document.querySelectorAll('.destination-select-item').forEach(element => element.classList.remove("active"));
+
+    document.querySelector('#destination-image-'+destinationId)?.classList.add('active-destination');
+    document.querySelector('#destination-item-'+destinationId)?.classList.add('active-destination');
+    document.querySelector('#destination-stats-'+destinationId)?.classList.add('active-destination');
+    document.querySelector('#destination-button-'+destinationId)?.classList.add('active');
+
+    this.activeDestination = destinationId;
+    
   }
 
 }

@@ -56,7 +56,7 @@ app-header{
     margin-top: 32px;
 }
 
-.destination-content{
+.image-container{
     flex-shrink: 0;
     position: relative;
     top: 0;
@@ -65,7 +65,7 @@ app-header{
 
 }
 
-.image-container{
+.image-inner-container{
     width: 100%;
     text-align: center;
 
@@ -145,6 +145,34 @@ app-header{
 }
 
 
+.destination-content-container, .destination-information, .destination-stats{
+    display: grid;
+    grid-template-columns: 100% 100%;
+    grid-template-rows: 1fr;
+    >div{
+        grid-area: 1 / 1;
+        left: 100%;
+        opacity: 0;
+        transition: transform .5s ease-in-out, opacity .5s ease-in-out;
+        
+        &.active-destination{
+            transform: translate(-100%, 0);
+            opacity: 1;
+        }
+    }
+}
+
+.destination-select-item{
+    position: relative;
+    cursor: pointer;
+    padding-bottom: 8px;
+    &.active::before{
+        border-bottom: solid 3px #fff;
+        width: 100%;
+        left: 0;
+    }
+}
+
 
 
 @media screen and (min-width: 768px) {
@@ -185,11 +213,7 @@ app-header{
     
     }
 
-    .destination-select-item{
-        position: relative;
-        cursor: pointer;
-        padding-bottom: 8px;
-    }
+
 
     .destination-select-item::before{
         border-bottom: solid 3px rgba(255, 255, 255, .5);
@@ -225,7 +249,7 @@ app-header{
         }
     }
 
-    .image-container{
+    .image-inner-container{
         text-align: left;
     }
 

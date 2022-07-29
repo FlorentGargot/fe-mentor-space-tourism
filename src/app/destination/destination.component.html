@@ -1,11 +1,11 @@
-<div class="component grid-container">
+<div class="component grid-container" ng-include="partialViewUrl" loaded="onLoad()">
     <app-header></app-header>
     <div class="page-title">
         <span>01</span>Pick your destination
     </div>
     <div class="destination-content-container">
-        <div class="destination-content flex-container-column scrollable" *ngFor="let destination of destinations">
-            <div class="image-container">
+        <div class="image-container flex-container-column" *ngFor="let destination of destinations, let index = index, let isFirst=first" id="destination-image-{{index}}" [ngClass]="{'active-destination':isFirst}">
+            <div class="image-inner-container">
                 <img src="{{destination.images.webp}}" alt="{{destination.name}}">
             </div>
         </div>
@@ -14,16 +14,20 @@
 
     
     <div class="destination-select">
-        <div class="destination-select-item" *ngFor="let destination of destinations"><p>{{destination.name | uppercase}}</p></div>
+        <div class="destination-select-item" *ngFor="let destination of destinations, let index = index, let isFirst=first" 
+                                            (click)="onDestinationClick(index)"  id="destination-button-{{index}}" [ngClass]="{'active':isFirst}">
+
+             <p>{{destination.name | uppercase}}</p>
+        </div>
     </div>
     <div class="destination-information">
-        <div class="information-container" *ngFor="let destination of destinations">
+        <div class="information-container" *ngFor="let destination of destinations, let index = index, let isFirst=first" id="destination-item-{{index}}" [ngClass]="{'active-destination':isFirst}">
             <h2>{{destination.name | uppercase}}</h2>
             <div class="destination-text">{{destination.description}}</div>
         </div>
     </div>
     <div class="destination-stats">
-        <div class="stats-container" *ngFor="let destination of destinations">
+        <div class="stats-container" *ngFor="let destination of destinations, let index = index, let isFirst=first" id="destination-stats-{{index}}" [ngClass]="{'active-destination':isFirst}">
             <div class="distance">
                 <div class="stat-label">Avg. Distance</div>
                 <div class="stat-value">{{destination.distance}}</div>
