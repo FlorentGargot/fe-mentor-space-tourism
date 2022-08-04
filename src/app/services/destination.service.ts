@@ -24,7 +24,6 @@ export class DestinationService implements OnInit{
         const headers = new HttpHeaders()
             .set('content-type', 'application/json')
             .set('Access-Control-Allow-Origin', '*');
-        console.log(headers);
         return this.http.get<Destination[]>('/api/destinations', {'headers': headers });
     }
     
