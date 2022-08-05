@@ -3,10 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { Crew } from '../models/crew.model';
 import { CrewService } from '../services/crew.service';
 
+
 @Component({
   selector: 'app-crew',
   templateUrl: './crew.component.html',
-  styleUrls: ['./crew.component.scss']
+  styleUrls: ['./crew.component.scss'],
+  host: { ['(document:touchstart)']: 'onTouchStart($event)',
+          ['(document:touchend)']: 'onTouchEnd($event)',
+          ['(document:keydown)']: 'onKeyDown($event)'}
 })
 export class CrewComponent implements OnInit {
   crews: Crew[] = [];
@@ -14,20 +18,12 @@ export class CrewComponent implements OnInit {
   // Swipe event handling variables
   touchStartX: number;
   touchEndX: number;
+  static touchSensitivityX = 40;
 
   constructor(private crewService: CrewService) {
     this.activeCrew = 0;
     this.touchStartX = 0;
     this.touchEndX = 0;
-    document.addEventListener('touchstart', e => { this.touchStartX = e.changedTouches[0].screenX});
-    document.addEventListener('touchend', e => {
-                          this.touchEndX = e.changedTouches[0].screenX;
-                          this.onSwipe();})
-
-    document.addEventListener('keydown', e => {
-      if(e.key === 'ArrowRight' && this.activeCrew < this.crews.length-1) this.onCrewClick(this.activeCrew+1);
-      if(e.key === 'ArrowLeft' && this.activeCrew > 0) this.onCrewClick(this.activeCrew-1)
-    })
   }
 
   ngOnInit(): void {
@@ -39,9 +35,8 @@ export class CrewComponent implements OnInit {
         // do nothing if clicked crew is already active
         if(crewId == this.activeCrew) return;
 
-        // error handling
-        if(crewId < 0) {console.error('onDestinationClick handler: crew ID is negative'); return};
-        if(crewId >= this.crews.length) { console.error('onDestinationClick handler: crew ID is not in the crew list') ;return};
+        if(crewId < 0) crewId = this.crews.length-1;
+        if(crewId >= this.crews.length) crewId = 0;
     
         if(crewId < this.activeCrew)  //clicked item left to active item
         {
@@ -76,12 +71,24 @@ export class CrewComponent implements OnInit {
   }
 
   onSwipe(){
-    if(this.touchEndX>this.touchStartX && this.activeCrew > 0) //swiped right
+    if(this.touchEndX>this.touchStartX + CrewComponent.touchSensitivityX) //swiped right
       this.onCrewClick(this.activeCrew-1);
     
-    if(this.touchEndX<this.touchStartX && this.activeCrew < this.crews.length-1) //swiped left
+    if(this.touchEndX<this.touchStartX - CrewComponent.touchSensitivityX) //swiped left
       this.onCrewClick(this.activeCrew+1);
     
+  }
+
+  onTouchStart($event: TouchEvent){
+    this.touchStartX = $event.changedTouches[0].screenX;
+  }
+  onTouchEnd($event: TouchEvent){
+    this.touchEndX = $event.changedTouches[0].screenX;
+    this.onSwipe();
+  }
+  onKeyDown($event: KeyboardEvent){
+    if($event.key === 'ArrowLeft') this.onCrewClick(this.activeCrew-1);
+    if($event.key === 'ArrowRight') this.onCrewClick(this.activeCrew+1);
   }
 
 }
