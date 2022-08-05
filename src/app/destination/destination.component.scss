@@ -37,11 +37,16 @@ app-header{
     align-self: start;
     grid-column: 2 / 4;
     grid-row: 2 / 3;
+
+    font-family: "Barlow";
     text-transform: uppercase;
     font-size: 16px;
     letter-spacing: 2.7px;
     font-stretch: condensed;
+    color: #ffffff;
+
     span{
+        font-family: "Barlow";
         margin-right: 18px;
         font-weight: 700;
         opacity: .25;

@@ -19,7 +19,7 @@ app-header{
 .grid-container{
     display: grid;
     grid-template-columns: 2fr 13fr 13fr 2fr;
-    grid-template-rows: 88px repeat(4, auto);
+    grid-template-rows: 88px 51px 33vh 74px auto;
     align-items: center;
 
 }
@@ -29,11 +29,16 @@ app-header{
     align-self: start;
     grid-column: 2 / 4;
     grid-row: 2 / 3;
+
+    font-family: "Barlow";
     text-transform: uppercase;
     font-size: 16px;
     letter-spacing: 2.7px;
     font-stretch: condensed;
+    color: #ffffff;
+
     span{
+        font-family: "Barlow";
         margin-right: 18px;
         font-weight: 700;
         opacity: .25;
@@ -52,7 +57,7 @@ app-header{
     grid-row: 3 / 4;
     overflow: hidden;
     display: flex;
-    margin-top: 32px;
+    border-bottom: solid #383B4B 1px;
 }
 
 .image-container{
@@ -88,10 +93,9 @@ app-header{
 .image-inner-container{
     width: 100%;
     text-align: center;
-    border-bottom: solid #383B4B 1px;
 
     img{
-        width: 50%;
+        height: 33vh;
         vertical-align: bottom;
     }
 }
@@ -117,6 +121,8 @@ app-header{
 .crew-content-collection{
     grid-area: 5/2/span 1/span 2;
     overflow: hidden;
+    align-self: start;
+    text-align: center;
     h3, h4{
         text-align: center;
     }

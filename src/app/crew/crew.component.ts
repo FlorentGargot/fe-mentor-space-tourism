@@ -18,7 +18,7 @@ export class CrewComponent implements OnInit {
   // Swipe event handling variables
   touchStartX: number;
   touchEndX: number;
-  static touchSensitivityX = 40;
+  static touchSensitivityX = 60;
 
   constructor(private crewService: CrewService) {
     this.activeCrew = 0;
@@ -76,7 +76,6 @@ export class CrewComponent implements OnInit {
     
     if(this.touchEndX<this.touchStartX - CrewComponent.touchSensitivityX) //swiped left
       this.onCrewClick(this.activeCrew+1);
-    
   }
 
   onTouchStart($event: TouchEvent){

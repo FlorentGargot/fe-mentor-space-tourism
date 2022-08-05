@@ -18,7 +18,7 @@ export class DestinationComponent implements OnInit {
   // Swipe event handling variables
   touchStartX: number;
   touchEndX: number;
-  static touchSensitivityX = 40;
+  static touchSensitivityX = 60;
 
   constructor(private destinationService: DestinationService) {     
     this.activeDestination = 0;
@@ -53,13 +53,11 @@ export class DestinationComponent implements OnInit {
   }
 
   onSwipe(){
-    if(this.touchEndX>this.touchStartX) //swiped right
+    if(this.touchEndX>this.touchStartX + DestinationComponent.touchSensitivityX) //swiped right
       this.onDestinationClick(this.activeDestination-1);
     
-    if(this.touchEndX<this.touchStartX) //swiped left
+    if(this.touchEndX<this.touchStartX - DestinationComponent.touchSensitivityX) //swiped left
       this.onDestinationClick(this.activeDestination+1);
-    
-
   }
 
   
