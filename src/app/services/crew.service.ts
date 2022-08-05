@@ -20,7 +20,7 @@ export class CrewService implements OnInit {
         const headers = new HttpHeaders()
             .set('content-type', 'application/json')
             .set('Access-Control-Allow-Origin', '*');
-        return this.http.get<Crew[]>('/api/destinations', {'headers': headers });
+        return this.http.get<Crew[]>('/api/crew', {'headers': headers });
     }
     
 }

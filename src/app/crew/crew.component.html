@@ -1,4 +1,22 @@
 <div class="component grid-container">
     <app-header></app-header>
-    
+    <div class="page-title"><span>02</span>Meet your crew</div>
+    <div class="image-collection-container">
+        <div class="image-container flex-container-column" *ngFor="let crew of crews, let index = index, let isFirst=first" id="crew-image-{{index}}" [ngClass]="{'right':!isFirst}" >
+            <div class="image-inner-container">
+                <img src="{{crew.images.webp}}" alt="{{crew.name}}">
+            </div>
+        </div>
+    </div>
+    <div class="crew-select">
+        <div class="crew-select-item" *ngFor="let crew of crews, let index = index, let isFirst=first" id="crew-item-{{index}}" [ngClass]="{'active':isFirst}" (click)="onCrewClick(index)"></div>
+    </div>
+
+    <div class="crew-content-collection">
+        <div class="crew-content-item" *ngFor="let crew of crews, let index = index, let isFirst=first" id="crew-content-item-{{index}}" [ngClass]="{'right':!isFirst}">
+            <h4 class="crew-role">{{crew.role}}</h4>
+            <h3 class="crew-name">{{crew.name}}</h3>
+            <div class="crew-bio">{{crew.bio}}</div>
+        </div>
+    </div>
 </div>
