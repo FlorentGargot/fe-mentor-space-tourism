@@ -17,13 +17,17 @@ export class DestinationComponent implements OnInit {
   activeDestination: number;
   // Swipe event handling variables
   touchStartX: number;
+  touchStartY: number;
   touchEndX: number;
+  touchEndY: number;
   static touchSensitivityX = 60;
 
   constructor(private destinationService: DestinationService) {     
     this.activeDestination = 0;
     this.touchStartX = 0;
+    this.touchStartY = 0;
     this.touchEndX = 0;
+    this.touchEndY = 0;
   }
 
   ngOnInit(): void {
@@ -53,19 +57,27 @@ export class DestinationComponent implements OnInit {
   }
 
   onSwipe(){
-    if(this.touchEndX>this.touchStartX + DestinationComponent.touchSensitivityX) //swiped right
+    const touchDeltaX = this.touchEndX-this.touchStartX; //positive: swiped right, negative: swiped left
+    const touchDeltaY = this.touchEndY-this.touchStartY; //positive: swiped down, negative: swiped up
+
+    // no action taken if a significant vertical swipe is detected
+    if(Math.abs(touchDeltaX) < Math.abs(touchDeltaY)) return;
+
+    if(touchDeltaX - DestinationComponent.touchSensitivityX > 0) //swiped right
       this.onDestinationClick(this.activeDestination-1);
     
-    if(this.touchEndX<this.touchStartX - DestinationComponent.touchSensitivityX) //swiped left
+    if(touchDeltaX + DestinationComponent.touchSensitivityX < 0) //swiped left
       this.onDestinationClick(this.activeDestination+1);
   }
 
   
   onTouchStart($event: TouchEvent){
     this.touchStartX = $event.changedTouches[0].screenX;
+    this.touchStartY = $event.changedTouches[0].screenY;
   }
   onTouchEnd($event: TouchEvent){
     this.touchEndX = $event.changedTouches[0].screenX;
+    this.touchEndY = $event.changedTouches[0].screenY;
     this.onSwipe();
   }
   onKeyDown($event: KeyboardEvent){
