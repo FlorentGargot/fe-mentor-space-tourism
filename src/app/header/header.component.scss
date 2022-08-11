@@ -42,7 +42,10 @@ header{
     left: 100vw;
     height: 100vh;
     width: 68vw;
+
     font-size: 16px;
+    letter-spacing: 2.7px;
+
     backdrop-filter: blur(81.5485px);
     transition: left .5s ease-in-out;
 
@@ -56,7 +59,6 @@ header{
 .menu-item{
     box-sizing: border-box;
     width: 100%;
-    letter-spacing: 2.7px;
     padding: 3px 0;
     &:hover{
         border-right: solid 4px rgba(255, 255, 255, .5);
@@ -70,7 +72,7 @@ header{
 
 
 .menu-number{
-    padding: 0 11px;
+    padding-right: 11px;
     font-family: 'Barlow';
     font-stretch: condensed;
     color: #fff;
@@ -98,7 +100,6 @@ header{
     font-family: 'Barlow';
     font-stretch: condensed;
     font-weight: 100;
-    line-height: 17px;
 
 }
 
@@ -113,11 +114,14 @@ header{
         position: initial;
         right: auto;
         width: auto;
-        font-size: 14px;
         height: 100%;
+
+        font-size: 14px;
+        letter-spacing: 2.36px;
+
         flex-direction: row;
         align-items: center;
-        column-gap: 37px;
+        column-gap: 48px;
         padding: 0 48px;
         &.opened{
             left: auto;
@@ -176,6 +180,8 @@ header{
 
     #menu{
         padding: 0 100px;
+        font-size: 16px;
+        letter-spacing: 2.7px;
     }
 
     #menuline{
