@@ -1,6 +1,6 @@
 .component{
     height: auto;
-    min-height: 100vh;
+    height: 100vh;
     
     background-size: cover;
     background-position: center;
@@ -19,21 +19,19 @@ app-header{
 .grid-container{
     display: grid;
     grid-template-columns: 2fr 13fr 13fr 2fr;
-    grid-template-rows: 88px 51px 33vh 74px auto;
+    grid-template-rows: 88px auto;
     align-items: center;
 
 }
 
 .page-title{
-    justify-self: center;
-    align-self: start;
-    grid-column: 2 / 4;
-    grid-row: 2 / 3;
+    text-align: center;
 
     font-family: "Barlow";
     text-transform: uppercase;
     font-size: 16px;
     letter-spacing: 2.7px;
+    line-height: 19px;
     font-stretch: condensed;
     color: #ffffff;
 
@@ -43,6 +41,17 @@ app-header{
         font-weight: 700;
         opacity: .25;
     }
+}
+
+.main-page-container{
+    grid-column: 2 / span 2;
+    grid-row: 2;
+    height: 100%;
+
+    display: flex;
+    justify-content: flex-start;
+    gap: 32px;
+    flex-direction: column;
 }
 
 .flex-container-column{
@@ -62,7 +71,9 @@ app-header{
 
 .image-container{
     flex-shrink: 0;
+    height: 33vh;
 }
+
 
 .crew-content-collection, .image-collection-container{
     display: grid;
@@ -90,15 +101,6 @@ app-header{
     }
 }
 
-.image-inner-container{
-    width: 100%;
-    text-align: center;
-
-    img{
-        height: 33vh;
-        vertical-align: bottom;
-    }
-}
 
 .crew-select{
     grid-area: 4/2/span 1/span 2;
@@ -121,7 +123,6 @@ app-header{
 .crew-content-collection{
     grid-area: 5/2/span 1/span 2;
     overflow: hidden;
-    align-self: start;
     text-align: center;
     h3, h4{
         text-align: center;
@@ -134,10 +135,52 @@ app-header{
     }
 
     .grid-container{
-        grid-template-columns: 4fr 11fr 11fr 4fr;
-        grid-template-rows: 96px repeat(5, auto);
+        grid-template-rows: 96px 1fr;
     
     }
+
+    .main-page-container{
+        grid-column: 1 / -1;
+        align-items: center;
+        gap: 40px;
+        > div{
+            width: 90%;
+        }
+    }
+
+    .image-collection-container{
+        order: 2;
+        flex: 1 1 0%;
+        border: none;
+    }
+
+    .image-container{
+        justify-content: flex-end;
+        height: 100%;
+    }
+    
+    .crew-select{
+        order: 1;
+    }
+
+    .crew-content-item{
+        width: 80%;
+        justify-self: center;
+    }
+
+    .page-title{
+        text-align: left;
+        grid-column: 1 / span 2;
+        margin: 40px 0 20px 0;
+
+        font-size: 20px;
+        letter-spacing: 3.375px;
+        span{
+            
+        }
+
+    }
+
 
 
 }
