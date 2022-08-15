@@ -59,6 +59,14 @@ h5{
     color: #fff;
     font-size: 16px;
     letter-spacing: 2.7px;
+    > span{
+        font-size: 16px;
+    }
+
+}
+
+.text-content{
+    line-height: 25px;
 }
 
 .flex-container-column{
@@ -99,6 +107,13 @@ h5{
     h5{
         font-size: 20px;
         letter-spacing: 3.375px;
+        > span{
+            font-size: 20px;
+        }
+    }
+    
+    .text-content{
+        line-height: 28px;
     }
 }
 
@@ -124,5 +139,12 @@ h5{
     h5{
         font-size: 28px;
         letter-spacing: 4.75px;
+        > span{
+            font-size: 28px;
+        }
+    }
+    
+    .text-content{
+        line-height: 32px;
     }
 }
