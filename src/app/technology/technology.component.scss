@@ -25,6 +25,7 @@ app-header{
 }
 
 h5{
+    align-self: start;
     text-align: center;
     grid-column: 2 / span 2;
     span{
@@ -43,7 +44,10 @@ h5{
     display: flex;
     gap: 16px;
     justify-content: center;
+    margin-top: 34px;
     .technology-select-item{
+        font-family: 'Bellefair';
+        font-size: 16px;
         width: 40px;
         height: 40px;
         border-radius: 50% 50%;
@@ -108,7 +112,9 @@ h5{
 
 .image-container{
     flex-shrink: 0;
-    height: 33vh;
+    height: 40vw;
+    min-height: 170px;
+    width: 100%;
 }
 
 @media screen and (min-width: 768px) {
@@ -117,11 +123,34 @@ h5{
     }
 
     .grid-container{
-        grid-template-columns: 4fr 11fr 11fr 4fr;
         grid-template-rows: 96px repeat(5, auto);
     
     }
 
+    h5{
+        text-align: start;
+        margin-top: 40px;
+    }
+
+    .technology-select {
+        margin-top: 57px;
+
+        .technology-select-item{
+            font-size: 24px;
+            height: 60px;
+            width: 60px;
+        }
+    }
+
+    .technology-content-header{
+        font-size: 16px;
+        margin-top: 44px;
+        margin-bottom: 16px;
+    }
+
+    .technology-content-collection{
+        width: 60%;
+    }
 }
 
 @media screen and (min-width: 1280px) and (min-height: 720px) {
