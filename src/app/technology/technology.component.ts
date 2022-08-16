@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from '../app.component';
 import { Technology } from '../models/technology.model';
 import { TechnologyService } from '../services/technology.service';
 
@@ -20,7 +21,7 @@ export class TechnologyComponent implements OnInit {
   touchEndY: number;
   static touchSensitivityX = 60;
 
-  constructor(private technologyService: TechnologyService) { 
+  constructor(private technologyService: TechnologyService, protected appComponent: AppComponent) { 
     this.activeTechnology = 0;
     this.touchStartX = 0;
     this.touchStartY = 0;

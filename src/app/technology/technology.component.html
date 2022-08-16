@@ -5,7 +5,7 @@
         <div class="image-collection-container">
             <div class="image-container flex-container-column" *ngFor="let tech of technologies, let index = index, let isFirst=first"
                                                                 id="technology-image-{{index}}" [ngClass]="{'right':!isFirst}"
-                                                                style="background: url('{{tech.images.landscape}}') no-repeat; background-size: cover;background-position: center center;">
+                                                                style="background: url('{{appComponent.isDesktopLayout?tech.images.portrait:tech.images.landscape}}') no-repeat; background-size: cover;background-position: center center;">
             </div>
         </div>
         <div class="technology-select">
