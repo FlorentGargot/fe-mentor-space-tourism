@@ -1,11 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
 * {
-    margin: 0;
-    font-family: 'Barlow Thin';
     font-weight: 400;
-    font-size: 15px;
     color: #D0D6F9;
+    margin: 0;
     box-sizing: border-box;
 }
 
@@ -19,6 +17,7 @@ h1 {
 }
 
 h1 + .subheading{
+    font-family: 'Barlow Thin';
     text-transform: uppercase;
     order: -1;
     font-size: 16px;
@@ -54,19 +53,25 @@ h4{
 }
 
 h5{
-    font-family: "Barlow";
+    font-family: "Barlow Thin";
+    text-transform: uppercase;
     font-stretch: condensed;
     color: #fff;
     font-size: 16px;
     letter-spacing: 2.7px;
     > span{
+        font-family: "Barlow";
         font-size: 16px;
+        font-weight: 700;
+        opacity: .25;
     }
 
 }
 
 .text-content{
     line-height: 25px;
+    font-family: 'Barlow Thin';
+    font-size: 15px;
 }
 
 .flex-container-column{

@@ -24,6 +24,93 @@ app-header{
 
 }
 
+h5{
+    text-align: center;
+    grid-column: 2 / span 2;
+    span{
+        margin-right: 18px;
+    }
+}
+
+#page-content{
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / -1;
+}
+
+
+.technology-select{
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    .technology-select-item{
+        width: 40px;
+        height: 40px;
+        border-radius: 50% 50%;
+        border: solid rgba($color: (#fff), $alpha: .25) 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: all 0.5s ease-in-out;
+
+        &.active{
+            background-color: #fff;
+            color: #0B0D17;
+            ;
+        }
+    }
+}
+
+.technology-content-collection, .image-collection-container{
+    display: grid;
+    grid-template-columns: 100% 100%;
+    grid-template-rows: 1fr;
+    overflow: hidden;
+
+    > div{
+        grid-area: 1 / 1 / span 1 / span 1;
+        position: relative;
+        left: 0%;
+
+        transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
+
+        &.right{
+            left: 100%;
+            opacity: 0;
+        }
+        &.left{
+            left: -100%;
+            opacity: 0;
+        }
+    }
+
+}
+
+.technology-content-collection{
+    width: 85%;
+    align-self: center;
+    > div{
+        text-align: center;
+    }
+}
+
+.technology-content-header{
+    font-family: 'Barlow Thin';
+    font-stretch: condensed;
+    font-size: 14px;
+    letter-spacing: 2.3625px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 9px;
+    margin-top: 25px;
+}
+
+.image-container{
+    flex-shrink: 0;
+    height: 33vh;
+}
+
 @media screen and (min-width: 768px) {
     .component{
         background-image: url('/assets/technology/background-technology-tablet.jpg');

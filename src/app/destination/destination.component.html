@@ -1,8 +1,8 @@
 <div class="component grid-container" ng-include="partialViewUrl" loaded="onLoad()">
     <app-header></app-header>
-    <div class="page-title">
+    <h5 class="page-title">
         <span>01</span>Pick your destination
-    </div>
+    </h5>
     <div class="destination-content-container">
         <div class="image-container flex-container-column" *ngFor="let destination of destinations, let index = index, let isFirst=first" id="destination-image-{{index}}" [ngClass]="{'active-destination':isFirst}">
             <div class="image-inner-container">
