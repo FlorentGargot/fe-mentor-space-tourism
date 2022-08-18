@@ -59,9 +59,16 @@ header{
 .menu-item{
     box-sizing: border-box;
     width: 100%;
-    padding: 3px 0;
+
+    padding: 0.5em;
+    > p{
+        margin: 0;
+    }
+
+    border-right: solid 4px rgba($color: #fff, $alpha: 0);
+      
     &:hover{
-        border-right: solid 4px rgba(255, 255, 255, .5);
+        border-right: solid 4px rgba($color: #fff, $alpha: .5);
     }
     &.active{
         border-right: solid 4px #fff;
@@ -72,8 +79,7 @@ header{
 
 
 .menu-number{
-    padding-right: 11px;
-    font-family: 'Barlow';
+    font-family: 'Barlow Thin';
     font-stretch: condensed;
     color: #fff;
     font-weight: 700;
@@ -97,10 +103,20 @@ header{
 
 .flex-item{
     color: #fff;
-    font-family: 'Barlow';
+    font-family: 'Barlow Thin';
     font-stretch: condensed;
     font-weight: 100;
 
+}
+
+@media screen and (max-width: 767px){
+    .menu-item{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        .menu-number{
+            display: block;
+        }
+    }
 }
 
 @media screen and (min-width: 768px){
@@ -116,13 +132,17 @@ header{
         right: auto;
         width: auto;
         height: 100%;
+        flex: 0 0 60%;
 
-        font-size: 14px;
-        letter-spacing: 2.36px;
+        p{
+            font-size: 14px;
+            letter-spacing: 2.36px;
+        }
 
         flex-direction: row;
         align-items: center;
-        column-gap: 48px;
+        //column-gap: 48px;
+        justify-content: space-around;
         padding: 0 48px;
         &.opened{
             left: auto;
@@ -135,8 +155,9 @@ header{
         align-items: center;
         position: relative;
         cursor: pointer;
-        //border-bottom: solid 3px transparent;
-
+        flex-basis: fit-content;
+        border-right: none;
+        
         &:hover, &.active{
             border-right: none;
         }
@@ -171,23 +192,27 @@ header{
 
 }
 
-@media screen and (min-width: 1280px) and (min-height: 720px) {
-    header{
-        margin-top: 40px;
-    }
-
+@media screen and (min-width: 1280px) {
     #logo{
         margin-left: 55px;
     }
 
     .menu-number{
         margin-left: 0;
+        padding-right: 11px;
     }
 
     #menu{
         padding: 0 100px;
         font-size: 16px;
         letter-spacing: 2.7px;
+        width: 60%;
+        
+        p, span{
+            font-size: 16px;
+            letter-spacing: 2.7px;
+        }
+
     }
 
     #menuline{

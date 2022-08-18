@@ -1,46 +1,9 @@
 .component{
-    height: auto;
-    height: 100vh;
-    
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     background-image: url('/assets/crew/background-crew-mobile.jpg');
-    background-attachment: fixed;
-    background-clip: border-box;
-}
-
-app-header{
-    grid-column: 1 / -1;
-    grid-row: 1 / 2;
-    place-self: stretch;
-}
-
-.grid-container{
-    display: grid;
-    grid-template-columns: 2fr 13fr 13fr 2fr;
-    grid-template-rows: 88px auto;
-    align-items: center;
-
-}
-
-.page-title{
-    text-align: center;
-
-    span{
-        margin-right: 18px;
-    }
 }
 
 .main-page-container{
-    grid-column: 2 / span 2;
-    grid-row: 2;
-    height: 100%;
-
-    display: flex;
-    justify-content: flex-start;
     gap: 32px;
-    flex-direction: column;
 }
 
 .flex-container-column{
@@ -123,11 +86,6 @@ app-header{
         background-image: url('/assets/crew/background-crew-tablet.jpg');
     }
 
-    .grid-container{
-        grid-template-rows: 96px 1fr;
-    
-    }
-
     .main-page-container{
         align-items: center;
         gap: 40px;
@@ -155,45 +113,31 @@ app-header{
         justify-self: center;
     }
 
-    .page-title{
-        align-self: flex-start;
-        grid-column: 1 / span 2;
-        margin: 40px 0 20px 0;
-
-        letter-spacing: 3.375px;
-
-    }
-
-
-
 }
 
-@media screen and (min-width: 1280px) and (min-height: 720px) {
+@media screen and (min-width: 1280px){
     .component{
         background-image: url('/assets/crew/background-crew-desktop.jpg');
     }
 
-    .grid-container{
-        grid-template-columns: 1fr 7fr .5fr;
-        grid-template-rows: 96px 40px auto;
-    
+    #page-content{
+        display: grid;
     }
+
+    .page-title{
+        padding: 0;
+    }
+
 
     .main-page-container{
         grid-column: 2 / span 1;
-        grid-row: 3;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: repeat(3, auto);
         gap: 0;
         align-content: space-between;
         justify-items: start;
-        padding-top: 76px;
 
-        .page-title{
-            grid-area: 1/1/span 1/span 1;
-            margin-top: 0;
-        }
 
         .crew-content-collection{
             grid-area: 2/1/span 1/span 1;
@@ -222,6 +166,10 @@ app-header{
             grid-area: 3/1/span 1/span 1;
             padding-bottom: 94px;
             justify-content: start;
+            .crew-select-item{
+                height: 15px;
+                width: 15px;
+            }
         }
 
 

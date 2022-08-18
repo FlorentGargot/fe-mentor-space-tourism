@@ -1,29 +1,5 @@
-* {
-    margin: 0;
-}
-
 .component{
-    height: 100vh;
-    overflow: hidden;
-    background-size: 100%;
-    background-size: cover;
-    background-position: center;
     background-image: url('/assets/home/background-home-mobile.jpg');
-}
-
-app-header{
-    grid-column: 1 / -1;
-    grid-row: 1 / 2;
-    place-self: stretch;
-}
-
-
-.grid-container{
-    display: grid;
-    grid-template-columns: 2fr 13fr 13fr 2fr;
-    grid-template-rows: 88px 5fr 4fr;
-    align-items: center;
-
 }
 
 .home-content-container{
@@ -76,9 +52,7 @@ app-header{
 
 @media screen and (min-width: 768px){
     .component{
-    background-image: url('/assets/home/background-home-tablet.jpg');
-    }
-    .grid-container{
+        background-image: url('/assets/home/background-home-tablet.jpg');
         
         grid-template-columns: 1fr 225px 225px 1fr;
         grid-template-rows: 96px 5fr 4fr;
@@ -92,15 +66,12 @@ app-header{
 
 }
 
-@media screen and (min-width: 1280px) and (min-height: 720px) {
+@media screen and (min-width: 1280px) {
     .component{
-    background-image: url('/assets/home/background-home-desktop.jpg');
-    }
+        background-image: url('/assets/home/background-home-desktop.jpg');
 
-    .grid-container{
-        
-        grid-template-columns: 11fr 37fr 37fr 11fr;
-        grid-template-rows: 96px 5fr 1fr;
+        grid-template-columns: 2fr 7fr 7fr 2fr;
+        grid-template-rows: 96px 3fr 1fr;
         align-items: end;
     }
 

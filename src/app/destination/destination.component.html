@@ -1,40 +1,49 @@
-<div class="component grid-container" ng-include="partialViewUrl" loaded="onLoad()">
+<div class="component" ng-include="partialViewUrl" loaded="onLoad()">
     <app-header></app-header>
     <h5 class="page-title">
         <span>01</span>Pick your destination
     </h5>
-    <div class="destination-content-container">
-        <div class="image-container flex-container-column" *ngFor="let destination of destinations, let index = index, let isFirst=first" id="destination-image-{{index}}" [ngClass]="{'active-destination':isFirst}">
-            <div class="image-inner-container">
-                <img src="{{destination.images.webp}}" alt="{{destination.name}}">
+    <div id="page-content">
+        <!-- <div class="image-collection-container">
+            <div class="image-container flex-container-column" *ngFor="let destination of destinations, let index = index, let isFirst=first" id="destination-image-{{index}}" [ngClass]="{'active-destination':isFirst}">
+                <div class="image-inner-container">
+                    <img src="{{destination.images.webp}}" alt="{{destination.name}}">
+                </div>
+            </div>
+        </div> -->
+
+        <div class="image-collection-container scrollable-collection">
+            <div class="image-container flex-container-column" *ngFor="let destination of destinations, let index = index, let isFirst=first"
+                                                                id="destination-image-{{index}}" [ngClass]="{'right':!isFirst}"
+                                                                style="background: url('{{destination.images.webp}}') no-repeat; background-size: contain;background-position: center center;">
             </div>
         </div>
 
-    </div>
+        <div id="destination-content">
+            <div class="destination-select">
+                <div class="destination-select-item" *ngFor="let destination of destinations, let index = index, let isFirst=first" 
+                                                    (click)="onDestinationClick(index)"  id="destination-button-{{index}}" [ngClass]="{'active':isFirst}">
 
-    
-    <div class="destination-select">
-        <div class="destination-select-item" *ngFor="let destination of destinations, let index = index, let isFirst=first" 
-                                            (click)="onDestinationClick(index)"  id="destination-button-{{index}}" [ngClass]="{'active':isFirst}">
-
-             <p>{{destination.name | uppercase}}</p>
-        </div>
-    </div>
-    <div class="destination-information">
-        <div class="information-container" *ngFor="let destination of destinations, let index = index, let isFirst=first" id="destination-item-{{index}}" [ngClass]="{'active-destination':isFirst}">
-            <h2>{{destination.name | uppercase}}</h2>
-            <div class="destination-text text-content">{{destination.description}}</div>
-        </div>
-    </div>
-    <div class="destination-stats">
-        <div class="stats-container" *ngFor="let destination of destinations, let index = index, let isFirst=first" id="destination-stats-{{index}}" [ngClass]="{'active-destination':isFirst}">
-            <div class="distance">
-                <div class="stat-label">Avg. Distance</div>
-                <div class="stat-value">{{destination.distance}}</div>
+                    <p>{{destination.name | uppercase}}</p>
+                </div>
             </div>
-            <div class="travel-time">
-                <div class="stat-label">Est. travel time</div>
-                <div class="stat-value">{{destination.travel}}</div>
+            <div class="destination-information scrollable-collection">
+                <div class="information-container" *ngFor="let destination of destinations, let index = index, let isFirst=first" id="destination-item-{{index}}" [ngClass]="{'right':!isFirst}">
+                    <h2>{{destination.name | uppercase}}</h2>
+                    <div class="destination-text text-content">{{destination.description}}</div>
+                </div>
+            </div>
+            <div class="destination-stats scrollable-collection">
+                <div class="stats-container" *ngFor="let destination of destinations, let index = index, let isFirst=first" id="destination-stats-{{index}}" [ngClass]="{'right':!isFirst}">
+                    <div class="distance">
+                        <div class="stat-label">Avg. Distance</div>
+                        <div class="stat-value">{{destination.distance}}</div>
+                    </div>
+                    <div class="travel-time">
+                        <div class="stat-label">Est. travel time</div>
+                        <div class="stat-value">{{destination.travel}}</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

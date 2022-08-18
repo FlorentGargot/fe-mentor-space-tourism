@@ -1,28 +1,5 @@
 .component{
-    height: auto;
-    min-height: 100vh;
-    
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     background-image: url('/assets/destination/background-destination-mobile.jpg');
-    background-attachment: fixed;
-    background-clip: border-box;
-}
-
-app-header{
-    grid-column: 1 / -1;
-    grid-row: 1 / 2;
-    place-self: stretch;
-}
-
-
-.grid-container{
-    display: grid;
-    grid-template-columns: 2fr 13fr 13fr 2fr;
-    grid-template-rows: 88px repeat(5, auto);
-    align-items: center;
-
 }
 
 .flex-container-column{
@@ -32,35 +9,9 @@ app-header{
     align-items: center;
 }
 
-.page-title{
-    justify-self: center;
-    align-self: start;
-    grid-column: 2 / 4;
-    grid-row: 2 / 3;
-
-
-    span{
-        font-family: "Barlow";
-        margin-right: 18px;
-        font-weight: 700;
-        opacity: .25;
-    }
-}
-
-.destination-content-container{
-    grid-column: 2 / 4;
-    grid-row: 3 / 4;
-    overflow: hidden;
-    display: flex;
-    margin-top: 32px;
-}
-
 .image-container{
-    flex-shrink: 0;
-    position: relative;
-    top: 0;
-    left: 0%;
-    width: 100%;
+    padding-top: clamp(100px, 53%, 300px);
+    max-height: 445px;
 
 }
 
@@ -74,25 +25,18 @@ app-header{
     }
 }
 
-.destination-select{
-    grid-column: 2 / 4;
-    grid-row: 4 / 5;
-    justify-self: center ;
+#destination-content{
     display: flex;
-    gap: 27px;
+    flex-direction: column;
+}
+
+.destination-select{
+    align-self: center ;
+    display: flex;
+    gap: clamp(27px,7vw,36px);
     margin-top: 26px;
 }
 
-.destination-information{
-    grid-column: 2 / 4;
-    grid-row: 5 / 6;
-    justify-self: center ;
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    margin-top: 20px;
-    margin-bottom: 32px;
-}
 
 .information-container{
     text-align: center;
@@ -104,12 +48,6 @@ app-header{
 }        
 
 .destination-stats{
-    grid-column: 2 / 4;
-    grid-row: 6 / 7;
-    justify-self: center ;
-    width: 100%;
-    overflow: hidden;
-    display: flex;
     border-top: solid 1px #383B4B;
 }
 
@@ -147,28 +85,11 @@ app-header{
 }
 
 
-.destination-content-container, .destination-information, .destination-stats{
-    display: grid;
-    grid-template-columns: 100% 100%;
-    grid-template-rows: 1fr;
-    >div{
-        grid-area: 1 / 1;
-        left: 100%;
-        opacity: 0;
-        transition: transform .5s ease-in-out, opacity .5s ease-in-out;
-        
-        &.active-destination{
-            transform: translate(-100%, 0);
-            opacity: 1;
-        }
-    }
-}
-
 .destination-select-item{
     font-family: 'Barlow Thin';
     position: relative;
     cursor: pointer;
-    padding-bottom: 8px;
+    padding-bottom: 11px;
 
     &.active p{
         color: #fff;
@@ -184,6 +105,10 @@ app-header{
     }
 }
 
+.destination-text{
+    padding-bottom: 32px;
+}
+
 
 
 @media screen and (min-width: 768px) {
@@ -191,39 +116,35 @@ app-header{
         background-image: url('/assets/destination/background-destination-tablet.jpg');
     }
 
-    .grid-container{
-        grid-template-columns: 4fr 11fr 11fr 4fr;
-        grid-template-rows: 96px repeat(5, auto);
-    
-    }
-
-    .page-title{
-        justify-self: start;
-        margin-top: 40px;
-        grid-column: 1 / 3;
-        margin-left: 38px;
-    }
-
     .stats-container{
         display: flex;
         justify-content: space-around;
 
     }
-    
+
+    .destination-select-item{
+        padding-bottom: 15px;
+    }
+
 }
 
-@media screen and (min-width: 1280px) and (min-height: 720px){
+@media screen and (min-width: 1280px){
     .component{
         background-image: url('/assets/destination/background-destination-desktop.jpg');
     }
 
-    
-    .grid-container{
-        grid-template-columns: 1fr .5fr 4fr 3fr 1fr;
-        grid-template-rows: 96px 40px repeat(5, auto);
-    
+
+    #page-content{
+        flex-direction: row;
+        justify-content: space-around;
+        > div{
+            width: 37%;
+        }
     }
 
+    .destination-select-item p {
+        font-size: 16px;
+    }
 
 
     .destination-select-item::before{
@@ -243,15 +164,7 @@ app-header{
     
     }
 
-    .page-title{
-        grid-column: 2 / 4;
-        grid-row: 4 / 5;
-        align-self: start;
-        justify-self: start;
-        margin: 0;
-    }
-
-    .destination-content-container{
+    .image-collection-container{
         grid-column: 3 / 4;
         grid-row: 4 / 7;
         img{
@@ -259,14 +172,12 @@ app-header{
             max-width: 60vh;
         }
     }
-
     .image-inner-container{
         text-align: left;
     }
 
     .destination-select{
-        grid-column: 4 / 5;
-        grid-row: 4 / 5;
+        align-self: start;
         justify-self: start;
     }
 

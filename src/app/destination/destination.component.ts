@@ -44,13 +44,34 @@ export class DestinationComponent implements OnInit {
     if(destinationId < 0) destinationId = this.destinations.length-1;
     if(destinationId >= this.destinations.length) destinationId = 0;
 
-    document.querySelectorAll('.active-destination').forEach(element => element.classList.remove("active-destination"));
-    document.querySelectorAll('.destination-select-item').forEach(element => element.classList.remove("active"));
+    if(destinationId < this.activeDestination){
+      for(let i = destinationId; i<=this.activeDestination; i++){
+        if(i!=destinationId){
+          document.querySelector("#destination-image-"+i)?.classList.add('right');
+          document.querySelector("#destination-item-"+i)?.classList.add('right');
+          document.querySelector("#destination-stats-"+i)?.classList.add('right');
+        }
+        document.querySelector("#destination-image-"+i)?.classList.remove('left');
+        document.querySelector("#destination-item-"+i)?.classList.remove('left');
+        document.querySelector("#destination-stats-"+i)?.classList.remove('left');
+      }
+      
+    }else{
+      for(let i = this.activeDestination; i<=destinationId; i++){
+        if(i!=destinationId){
+          document.querySelector("#destination-image-"+i)?.classList.add('left');
+          document.querySelector("#destination-item-"+i)?.classList.add('left');
+          document.querySelector("#destination-stats-"+i)?.classList.add('left');
+        }
+        document.querySelector("#destination-image-"+i)?.classList.remove('right');
+        document.querySelector("#destination-item-"+i)?.classList.remove('right');
+        document.querySelector("#destination-stats-"+i)?.classList.remove('right');
+      }
+    }
 
-    document.querySelector('#destination-image-'+destinationId)?.classList.add('active-destination');
-    document.querySelector('#destination-item-'+destinationId)?.classList.add('active-destination');
-    document.querySelector('#destination-stats-'+destinationId)?.classList.add('active-destination');
+  
     document.querySelector('#destination-button-'+destinationId)?.classList.add('active');
+    document.querySelector('#destination-button-'+this.activeDestination)?.classList.remove('active');
 
     this.activeDestination = destinationId;
     

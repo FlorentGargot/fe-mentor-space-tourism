@@ -1,7 +1,7 @@
-<div class="component grid-container">
+<div class="component">
     <app-header></app-header>
-    <div class="main-page-container">
-        <h5 class="page-title"><span>02</span>Meet your crew</h5>
+    <h5 class="page-title"><span>02</span>Meet your crew</h5>
+    <div id="page-content" class="main-page-container">
         <div class="image-collection-container">
             <div class="image-container flex-container-column" *ngFor="let crew of crews, let index = index, let isFirst=first" 
                                                                 id="crew-image-{{index}}" [ngClass]="{'right':!isFirst}"

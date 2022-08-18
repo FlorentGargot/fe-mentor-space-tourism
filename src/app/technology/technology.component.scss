@@ -1,44 +1,10 @@
 .component{
-    height: auto;
-    min-height: 100vh;
-    
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     background-image: url('/assets/technology/background-technology-mobile.jpg');
-    background-attachment: fixed;
-    background-clip: border-box;
-}
-
-app-header{
-    grid-column: 1 / -1;
-    grid-row: 1 / 2;
-    place-self: stretch;
-}
-
-.grid-container{
-    display: grid;
-    grid-template-columns: 2fr 13fr 13fr 2fr;
-    grid-template-rows: 88px repeat(5, auto);
-    align-items: center;
-
-}
-
-h5{
-    align-self: start;
-    text-align: center;
-    grid-column: 2 / span 2;
-    span{
-        margin-right: 18px;
-    }
 }
 
 #page-content{
-    display: flex;
-    flex-direction: column;
-    grid-column: 1 / -1;
+    width: 100%;
 }
-
 
 .technology-select{
     display: flex;
@@ -115,21 +81,13 @@ h5{
     height: 40vw;
     min-height: 170px;
     width: 100%;
+    background-size: cover!important;
+    background-position: center center!important;
 }
 
 @media screen and (min-width: 768px) {
     .component{
         background-image: url('/assets/technology/background-technology-tablet.jpg');
-    }
-
-    .grid-container{
-        grid-template-rows: 96px repeat(5, auto);
-    
-    }
-
-    h5{
-        text-align: start;
-        margin-top: 40px;
     }
 
     .technology-select {
@@ -153,26 +111,15 @@ h5{
     }
 }
 
-@media screen and (min-width: 1280px) and (min-height: 720px) {
+@media screen and (min-width: 1280px){
     .component{
         background-image: url('/assets/technology/background-technology-desktop.jpg');
     }
 
-    .grid-container{
-        grid-template-columns: 1fr 7.5fr 1fr;
-        grid-template-rows: 96px 40px auto auto;
-    
-    }
-
-    h5{
-        grid-row: 3/span 1;
-        margin-top: 76px;
-    }
-
-    #page-content{
+     #page-content{
         flex-direction: row;
         gap: 80px;
-        grid-row: 4/-1;
+        grid-row: 3/-1;
         grid-column: 2/-1;
         align-self: start;
     }

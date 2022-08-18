@@ -14,11 +14,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     window.onload = () => {
       this.appComponent.isMobileLayout = window.innerWidth < 768;
-      this.appComponent.isDesktopLayout = window.innerWidth >= 1280 && window.innerHeight >= 720;
+      this.appComponent.isDesktopLayout = window.innerWidth >= 1280;
     };
     window.onresize = () => {
       this.appComponent.isMobileLayout = window.innerWidth < 768;
-      this.appComponent.isDesktopLayout = window.innerWidth >= 1280 && window.innerHeight >= 720;
+      this.appComponent.isDesktopLayout = window.innerWidth >= 1280;
     };
     
   }
