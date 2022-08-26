@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+
 body {
     font-weight: 400;
     color: #D0D6F9;
@@ -62,7 +66,8 @@ h1 {
 }
 
 h1 + .subheading{
-    font-family: 'Barlow Thin';
+    font-family: 'Barlow';
+    font-weight: 100;
     text-transform: uppercase;
     order: -1;
     font-size: 16px;
@@ -101,14 +106,13 @@ h4{
 }
 
 h5{
-    font-family: "Barlow Thin";
+    font-family: "Barlow Condensed";
+    font-weight: 100;
     text-transform: uppercase;
-    font-stretch: condensed;
     color: #fff;
     font-size: 16px;
     letter-spacing: 2.7px;
     > span{
-        font-family: "Barlow";
         font-size: 16px;
         font-weight: 700;
         opacity: .25;
@@ -118,7 +122,8 @@ h5{
 
 .text-content{
     line-height: 25px;
-    font-family: 'Barlow Thin';
+    font-family: 'Barlow';
+    font-weight: 400;
     font-size: 15px;
 }
 

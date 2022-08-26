@@ -66,8 +66,8 @@
 }
 
 .technology-content-header{
-    font-family: 'Barlow Thin';
-    font-stretch: condensed;
+    font-family: 'Barlow Condensed';
+    font-weight: 100;
     font-size: 14px;
     letter-spacing: 2.3625px;
     text-align: center;
@@ -81,6 +81,7 @@
     height: 40vw;
     min-height: 170px;
     width: 100%;
+    max-height: 600px;
     background-size: cover!important;
     background-position: center center!important;
 }
@@ -127,6 +128,8 @@
     .image-collection-container{
         order: 1;
         width: 50%;
+        max-width: 520px;
+        max-height: 600px;
     }
 
     .technology-select{

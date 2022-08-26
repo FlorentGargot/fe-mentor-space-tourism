@@ -62,9 +62,8 @@
 }
 
 .stat-label{
-    font-family: "Barlow";
+    font-family: "Barlow Condensed";
     margin-top: 32px;
-    font-stretch: condensed;
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 2.3625px;
@@ -75,7 +74,6 @@
     color: #fff;
     margin-top: 12px;
     font-size: 28px;
-    font-family: 'Bellefair';
     font-weight: 400;
     line-height: 32px;
 }
@@ -86,7 +84,8 @@
 
 
 .destination-select-item{
-    font-family: 'Barlow Thin';
+    font-family: 'Barlow';
+    font-weight: 100;
     position: relative;
     cursor: pointer;
     padding-bottom: 11px;
